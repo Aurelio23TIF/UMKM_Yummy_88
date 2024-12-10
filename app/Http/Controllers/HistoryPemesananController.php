@@ -12,7 +12,8 @@ class HistoryPemesananController extends Controller
      */
     public function index()
     {
-        //
+        $historyPemesanan = HistoryPemesanan::all();
+        return view('history_pemesanan.index', compact('historyPemesanan'));
     }
 
     /**
@@ -20,7 +21,7 @@ class HistoryPemesananController extends Controller
      */
     public function create()
     {
-        //
+        return view('history_pemesanan.create');
     }
 
     /**
@@ -28,7 +29,15 @@ class HistoryPemesananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_pelanggan' => 'required',
+            'nama_menu' => 'required',
+            'jumlah' => 'required|integer',
+            'total_harga' => 'required|numeric',
+        ]);
+
+        HistoryPemesanan::create($request->all());
+        return redirect()->route('history_pemesanan.index')->with('success', 'Pesanan berhasil ditambahkan!');
     }
 
     /**
@@ -36,7 +45,7 @@ class HistoryPemesananController extends Controller
      */
     public function show(HistoryPemesanan $historyPemesanan)
     {
-        //
+        return view('history_pemesanan.show', compact('historyPemesanan'));
     }
 
     /**
@@ -44,7 +53,7 @@ class HistoryPemesananController extends Controller
      */
     public function edit(HistoryPemesanan $historyPemesanan)
     {
-        //
+        return view('history_pemesanan.edit', compact('historyPemesanan'));
     }
 
     /**
@@ -52,7 +61,15 @@ class HistoryPemesananController extends Controller
      */
     public function update(Request $request, HistoryPemesanan $historyPemesanan)
     {
-        //
+        $request->validate([
+            'nama_pelanggan' => 'required',
+            'nama_menu' => 'required',
+            'jumlah' => 'required|integer',
+            'total_harga' => 'required|numeric',
+        ]);
+
+        $historyPemesanan->update($request->all());
+        return redirect()->route('history_pemesanan.index')->with('success', 'Pesanan berhasil diperbarui!');
     }
 
     /**
@@ -60,6 +77,7 @@ class HistoryPemesananController extends Controller
      */
     public function destroy(HistoryPemesanan $historyPemesanan)
     {
-        //
+        $historyPemesanan->delete();
+        return redirect()->route('history_pemesanan.index')->with('success', 'Pesanan berhasil dihapus!');
     }
 }
