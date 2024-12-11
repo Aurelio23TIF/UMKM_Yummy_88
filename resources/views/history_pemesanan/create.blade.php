@@ -1,17 +1,24 @@
-@extends('layouts.app')
-
-@section('content')
-<h1>Tambah Pemesanan</h1>
-<form action="{{ route('history_pemesanan.store') }}" method="POST">
+<form action="/history_pemesanan" method="POST">
     @csrf
-    <label>Nama Pelanggan:</label>
-    <input type="text" name="nama_pelanggan" required><br>
-    <label>Nama Menu:</label>
-    <input type="text" name="nama_menu" required><br>
-    <label>Jumlah:</label>
-    <input type="number" name="jumlah" required><br>
-    <label>Total Harga:</label>
-    <input type="number" step="0.01" name="total_harga" required><br>
+    <div>
+        <label for="nama_pelanggan">Nama Pelanggan:</label>
+        <input type="text" id="nama_pelanggan" name="nama_pelanggan" required>
+    </div>
+
+    <div>
+        <label for="nama_menu">Nama Menu:</label>
+        <input type="text" id="nama_menu" name="nama_menu" required>
+    </div>
+
+    <div>
+        <label for="jumlah">Jumlah:</label>
+        <input type="number" id="jumlah" name="jumlah" required>
+    </div>
+
+    <div>
+        <label for="total_harga">Total Harga:</label>
+        <input type="number" step="0.01" id="total_harga" name="total_harga" required>
+    </div>
+
     <button type="submit">Simpan</button>
 </form>
-@endsection
