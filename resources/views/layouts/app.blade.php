@@ -17,8 +17,12 @@
         href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Open+Sans:300,400,600,700|Baloo+Thambi+2|Barlow+Semi+Condensed:ital,wght@1,100|Montserrat:wght@200;300;500;700|Poppins:wght@100;200;300;500;700|Roboto:wght@300&display=swap"
         rel="stylesheet" />
     <script src="https://kit.fontawesome.com/c23fedd423.js" crossorigin="anonymous"></script>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Livewire Styles -->
+    @livewireStyles
 </head>
 
 <body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-slate-100 text-slate-500">
@@ -39,6 +43,9 @@
             {{ $slot }}
         </main>
     </div>
+
+    <!-- Livewire Scripts -->
+    @livewireScripts
 </body>
 
 </html>
