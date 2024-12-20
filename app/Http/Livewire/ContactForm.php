@@ -33,7 +33,7 @@ class ContactForm extends Component
                     'messageContent' => $this->message,
                 ],
                 function ($mail) {
-                    $mail->to('admin@example.com') // Ganti dengan email admin Anda
+                    $mail->to('ruben23ti@mahasiswa.pcr.ac.id') // Ganti dengan email admin Anda
                         ->subject('New Contact Us Message');
                 }
             );
