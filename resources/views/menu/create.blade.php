@@ -11,7 +11,7 @@
         </div>
         <div class="mb-3">
             <label for="harga_makanan" class="form-label">Harga Makanan</label>
-            <input type="number" name="harga_makanan" class="form-control" required>
+            <input type="text" name="harga_makanan" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="gambar" class="form-label">Gambar</label>

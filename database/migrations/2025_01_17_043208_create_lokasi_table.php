@@ -14,7 +14,7 @@ class CreateLokasiTable extends Migration
             $table->string('alamat');
             $table->string('hari_operasional');
             $table->string('jam_operasional');
-            $table->text('link_maps');
+            $table->string('link_maps');
             $table->timestamps();
         });
     }

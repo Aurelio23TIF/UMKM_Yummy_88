@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
             $table->string('nama_makanan');
-            $table->decimal('harga_makanan', 8, 2);
+            $table->string('harga_makanan');
             $table->string('gambar')->nullable();
             $table->timestamps();
         });

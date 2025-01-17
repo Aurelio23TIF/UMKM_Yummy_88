@@ -17,6 +17,7 @@ Route::resource('komentar', KomentarController::class)->except(['show']);
 Route::get('/', function () {
     return view('index');
 });
+
 Route::resource('news', NewsController::class);
 
 Route::resource('menu', MenuController::class);

@@ -2,30 +2,38 @@
 
 @section('content')
 <div class="container">
-    <h1>Tambah Lokasi</h1>
+    <h1 class="text-center mb-4">Tambah Lokasi</h1>
+
     <form action="{{ route('lokasi.store') }}" method="POST">
         @csrf
-        <div class="mb-3">
-            <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
-            <input type="text" name="nomor_telepon" class="form-control" required>
+        <div class="form-group mb-3">
+            <label for="nomor_telepon">Nomor Telepon</label>
+            <input type="text" class="form-control" name="nomor_telepon" id="nomor_telepon" required>
         </div>
-        <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" name="alamat" class="form-control" required>
+
+        <div class="form-group mb-3">
+            <label for="alamat">Alamat</label>
+            <input type="text" class="form-control" name="alamat" id="alamat" required>
         </div>
-        <div class="mb-3">
-            <label for="hari_operasional" class="form-label">Hari Operasional</label>
-            <input type="text" name="hari_operasional" class="form-control" required>
+
+        <div class="form-group mb-3">
+            <label for="hari_operasional">Hari Operasional</label>
+            <input type="text" class="form-control" name="hari_operasional" id="hari_operasional" required>
         </div>
-        <div class="mb-3">
-            <label for="jam_operasional" class="form-label">Jam Operasional</label>
-            <input type="text" name="jam_operasional" class="form-control" required>
+
+        <div class="form-group mb-3">
+            <label for="jam_operasional">Jam Operasional</label>
+            <input type="text" class="form-control" name="jam_operasional" id="jam_operasional" required>
         </div>
-        <div class="mb-3">
-            <label for="link_maps" class="form-label">Link Maps</label>
-            <input type="url" name="link_maps" class="form-control" required>
+
+        <div class="form-group mb-3">
+            <label for="link_maps">Koordinat (Latitude,Longitude)</label>
+            <input type="text" class="form-control" name="link_maps" id="link_maps" placeholder="Contoh: 0.5174313674483376,101.41771486858319" required>
         </div>
-        <button type="submit" class="btn btn-success">Simpan</button>
+
+        <div class="form-group mb-3">
+            <button type="submit" class="btn btn-primary">Simpan Lokasi</button>
+        </div>
     </form>
 </div>
 @endsection

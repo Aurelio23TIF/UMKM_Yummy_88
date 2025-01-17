@@ -23,7 +23,7 @@ class MenuController extends Controller
     {
         $validated = $request->validate([
             'nama_makanan' => 'required|string|max:255',
-            'harga_makanan' => 'required|numeric',
+            'harga_makanan' => 'required|String',
             'gambar' => 'nullable|image|max:2048',
         ]);
 
@@ -44,7 +44,7 @@ class MenuController extends Controller
     {
         $validated = $request->validate([
             'nama_makanan' => 'required|string|max:255',
-            'harga_makanan' => 'required|numeric',
+            'harga_makanan' => 'required|String',
             'gambar' => 'nullable|image|max:2048',
         ]);
 
