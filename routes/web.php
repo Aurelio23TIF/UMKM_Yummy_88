@@ -3,12 +3,23 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatatpesananController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\SlidesController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\KomentarController;
+use App\Http\Controllers\LokasiController;
+
+Route::resource('lokasi', LokasiController::class);
+
+
+Route::resource('komentar', KomentarController::class)->except(['show']);
 
 Route::get('/', function () {
     return view('index');
 });
+Route::resource('news', NewsController::class);
+
+Route::resource('menu', MenuController::class);
 
 Route::get('/catatpesanan', [CatatpesananController::class, 'catatpesanan'])->name('catatpesanan.index');
 
