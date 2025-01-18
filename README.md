@@ -20,3 +20,4 @@
 ![Laporan BPF Kelompok 2_page-0020](https://github.com/user-attachments/assets/321a38b5-eb30-4290-84db-1f5d7942cd9a)
 ![Laporan BPF Kelompok 2_page-0021](https://github.com/user-attachments/assets/584b97ac-9117-4e49-a7de-4aa85270ad0d)
 ![Laporan BPF Kelompok 2_page-0021](https://github.com/user-attachments/assets/e44a13e9-2078-420b-b13a-01d4ade6a44f)
+![Laporan BPF Kelompok 2_page-0022](https://github.com/user-attachments/assets/54a37d00-0e04-465a-ab50-62dbc8acbb8b)
