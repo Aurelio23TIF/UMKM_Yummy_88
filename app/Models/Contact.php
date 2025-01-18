@@ -15,5 +15,6 @@ class Contact extends Model
         'telepon',
         'email',
         'alamat',
+        'embedded_map',
     ];
 }

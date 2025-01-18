@@ -37,6 +37,7 @@ class ContactController extends Controller
             'telepon' => 'required|string|max:255',
             'email' => 'required|email',
             'alamat' => 'required|string',
+            'embedded_map' => 'required|string',
         ]);
 
         Contact::create($request->all());
@@ -59,6 +60,7 @@ class ContactController extends Controller
             'telepon' => 'required|string|max:255',
             'email' => 'required|email',
             'alamat' => 'required|string',
+            'embedded_map' => 'required|string',
         ]);
 
         $contact->update($request->all());

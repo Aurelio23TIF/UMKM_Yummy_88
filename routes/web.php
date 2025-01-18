@@ -18,13 +18,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::resource('menu', MenuController::class)->only(['index','create','store','edit','destroy','update']);
+Route::resource('menu', MenuController::class);
+
+Route::get('/menus', [MenuController::class, 'clientView'])->name('menu.client');
+
+Route::get('/menu-lengkap', [MenuController::class, 'menuLengkap'])->name('menu.lengkap');
 
 Route::resource('contacts', ContactController::class);
 
 Route::get('/contact', [ContactController::class, 'showClientContact'])->name('client.contact');
 
-Route::get('/test-mail', function () {
-    Mail::to('recipient@example.com')->send(new TestMail('Ini adalah email pengujian menggunakan Mailtrap!'));
-    return 'Email telah dikirim!';
-});
+

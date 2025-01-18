@@ -60,10 +60,21 @@
 
             <!-- Google Maps -->
             <div>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6557579539185!2d101.41546212136744!3d0.517216750649723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5ab00d795e0ff%3A0xd31841807e0a0f72!2sYummy%2088%20chinese%20food!5e0!3m2!1sen!2sid!4v1734053038729!5m2!1sen!2sid"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                @foreach ($contacts as $contact)
+                    @if ($contact->embedded_map)
+                        <iframe
+                            src="{{ $contact->embedded_map }}"
+                            width="600"
+                            height="450"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    @else
+                        <p class="text-red-500">Embedded map tidak tersedia.</p>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>

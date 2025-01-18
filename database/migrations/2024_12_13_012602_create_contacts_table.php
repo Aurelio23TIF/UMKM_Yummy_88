@@ -18,6 +18,7 @@ class CreateContactsTable extends Migration
             $table->string('telepon');
             $table->string('email');
             $table->string('alamat');
+            $table->text('embedded_map');
         });
 
     }

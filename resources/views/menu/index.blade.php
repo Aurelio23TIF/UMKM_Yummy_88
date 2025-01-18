@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('content')
     <div class="max-w-4xl mx-auto py-6">
         <h1 class="text-2xl font-bold mb-4">Daftar Menu</h1>
 
@@ -43,4 +45,6 @@
             document.getElementById('success-alert')?.remove();
         }, 1500);
     </script>
-</x-app-layout>
+
+    
+@endsection

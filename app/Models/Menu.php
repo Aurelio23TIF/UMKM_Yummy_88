@@ -13,7 +13,7 @@ class Menu extends Model
 
     protected $fillable = [
         'nama',
-        'deskripsi',
+        'jenis',
         'harga',
         'gambar',
     ];

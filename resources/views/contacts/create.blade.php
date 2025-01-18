@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container my-5">
-    <h1 class="text-center">Add New Contact</h1>
+    <h1 class="text-center">Tambahkan Informasi Kontak</h1>
 
     <form action="{{ route('contacts.store') }}" method="POST" class="mt-4">
         @csrf
@@ -17,6 +17,10 @@
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
             <textarea class="form-control" id="alamat" name="alamat" rows="5" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="embedded_map" class="form-label">Embedded Map (Google Maps Embed Link)</label>
+            <textarea class="form-control" id="embedded_map" name="embedded_map" rows="3" placeholder="Masukkan link Google Maps embed" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Kirim</button>
         <a href="{{ route('contacts.index') }}" class="btn btn-secondary">Batal</a>

@@ -9,7 +9,7 @@
         @method('PUT')
 
         <div class="mb-3">
-            <label for="telepon" class="form-label">telepon</label>
+            <label for="telepon" class="form-label">Telepon</label>
             <input type="text" name="telepon" id="telepon" class="form-control" value="{{ $contact->telepon }}" required>
         </div>
 
@@ -21,6 +21,11 @@
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
             <textarea name="alamat" id="alamat" class="form-control" rows="4" required>{{ $contact->alamat }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="embedded_map" class="form-label">Embedded Map (Google Maps Embed Link)</label>
+            <textarea name="embedded_map" id="embedded_map" class="form-control" rows="3" placeholder="Masukkan link Google Maps embed" required>{{ $contact->embedded_map }}</textarea>
         </div>
 
         <button type="submit" class="btn btn-warning">Edit</button>

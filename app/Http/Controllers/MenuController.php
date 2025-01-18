@@ -8,6 +8,21 @@ use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
+    public function clientView()
+    {
+        $menus = Menu::all(); // Mengambil semua data menu dari database
+        return view('menu.menu', compact('menus'));
+    }
+
+    public function menuLengkap()
+    {
+        // Ambil semua menu dari database
+        $menus = Menu::all();
+
+        // Return view dengan semua menu
+        return view('menu.menu-lengkap', compact('menus'));
+    }
+
     public function index()
     {
         $menus = Menu::all();

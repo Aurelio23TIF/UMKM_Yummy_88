@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('content')
     <div class="max-w-4xl mx-auto py-6">
         <h1 class="text-2xl font-bold mb-4">Edit Menu</h1>
         <form action="{{ route('menu.update', $menu->id) }}" method="POST" enctype="multipart/form-data">
@@ -29,6 +31,7 @@
             </div>
 
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
+            <a href="{{ route('menu.index') }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>
-</x-app-layout>
+@endsection
