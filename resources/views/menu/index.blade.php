@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-center mb-4">Daftar Menu</h1>
+    <h1 class="text-center mb-4">Daftar Menu Yummy 88</h1>
 
     <div class="text-center mb-4">
         <a href="{{ route('menu.create') }}" class="btn btn-primary" style="background-color: red; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">

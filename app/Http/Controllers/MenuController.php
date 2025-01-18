@@ -14,6 +14,13 @@ class MenuController extends Controller
         return view('menu.index', compact('menus'));
     }
 
+
+    public function home()
+    {
+        $menus = Menu::all(); // Ambil semua data slides
+        return view('index', compact('menus')); // Kirim ke view index.blade.php
+    }
+
     public function create()
     {
         return view('menu.create');

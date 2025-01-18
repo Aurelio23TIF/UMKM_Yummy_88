@@ -17,6 +17,12 @@ class LokasiController extends Controller
         return view('lokasi.index', compact('lokasi'));
     }
 
+    public function home()
+    {
+        $lokasi = Lokasi::all(); // Ambil semua data slides
+        return view('index', compact('lokasi')); // Kirim ke view index.blade.php
+    }
+
     // Menampilkan halaman form tambah lokasi
     public function create()
     {

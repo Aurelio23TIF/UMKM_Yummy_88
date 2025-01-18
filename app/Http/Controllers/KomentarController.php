@@ -13,6 +13,12 @@ class KomentarController extends Controller
         return view('komentar.index', compact('komentars'));
     }
 
+    public function home()
+    {
+        $komentars = Komentar::all(); // Ambil semua data slides
+        return view('index', compact('komentars')); // Kirim ke view index.blade.php
+    }
+
     public function create()
     {
         return view('komentar.create');

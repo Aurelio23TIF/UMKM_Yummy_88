@@ -13,6 +13,12 @@ class NewsController extends Controller
         return view('news.index', compact('news'));
     }
 
+    public function home()
+    {
+        $news = News::all(); // Ambil semua data slides
+        return view('index', compact('news')); // Kirim ke view index.blade.php
+    }
+
     public function create()
     {
         return view('news.create');

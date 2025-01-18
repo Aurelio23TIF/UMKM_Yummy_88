@@ -14,10 +14,10 @@ class SlideController extends Controller
     }
 
     public function home()
-{
-    $slides = Slide::all(); // Ambil semua data slides
-    return view('index', compact('slides')); // Kirim ke view index.blade.php
-}
+    {
+        $slides = Slide::all(); // Ambil semua data slides
+        return view('index', compact('slides')); // Kirim ke view index.blade.php
+    }
 
     public function create()
     {
