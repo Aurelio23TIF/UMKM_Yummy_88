@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.appuser')
 
-@section('content')
+@section('contents')
 <div class="container">
     <h1>Tambah Komentar</h1>
     <form action="{{ route('komentar.store') }}" method="POST">

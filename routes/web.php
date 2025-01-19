@@ -3,21 +3,29 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatatpesananController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\KomentarController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware(['auth', 'verified', 'role:admin'])->name('dashboard');
+Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboard.userindex')->middleware(['auth', 'verified', 'role:user'])->name('dashboard');
 
 Route::resource('lokasi', LokasiController::class);
 
 
 Route::resource('komentar', KomentarController::class)->except(['show']);
 
-Route::get('/', function () {
-    return view('index');
-});
 
 Route::resource('news', NewsController::class);
 
@@ -25,11 +33,8 @@ Route::resource('menu', MenuController::class);
 
 Route::get('/catatpesanan', [CatatpesananController::class, 'catatpesanan'])->name('catatpesanan.index');
 
-Route::get('/', function () {
-    return view('index');
-});
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::get('/crudslide', [SlideController::class, 'index'])->name('slides.index');
 Route::get('/createslide', [SlideController::class, 'create'])->name('slides.create');
@@ -45,5 +50,4 @@ Route::delete('/menu/{id}', [MenuController::class, 'destroy'])->name('menu.dest
 Route::get('/menu/{id}/edit', [MenuController::class, 'edit'])->name('menu.edit');
 Route::put('/menu/{id}', [MenuController::class, 'update'])->name('menu.update');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

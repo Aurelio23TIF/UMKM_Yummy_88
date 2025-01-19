@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -45,4 +46,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Tambahkan fungsi untuk role
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isUSer()
+    {
+        return $this->role === 'user';
+    }
+
+    public function isGuest()
+    {
+        return $this->role === 'guest';
+    }
+
 }

@@ -15,9 +15,8 @@ class HomeController extends Controller
         $menus = Menu::all();
         $news = News::all();
         $komentars = Komentar::all();
-        $lokasi = Lokasi::all();
 
-        return view('index', compact('slides', 'menus','news','komentars','lokasi'));
+        return view('index', compact('slides', 'menus','news','komentars'));
     }
 }
 

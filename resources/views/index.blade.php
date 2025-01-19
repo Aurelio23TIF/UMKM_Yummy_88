@@ -373,8 +373,9 @@
 
         <!-- Right side: login and daftar buttons -->
         <div class="auth-buttons">
-            <button class="login">Login</button>
-            <button class="daftar">Daftar</button>
+            <a href="{{ route('dashboard.index') }}" class="login">
+                <button>Dashboard</button>
+            </a>
         </div>
     </div>
 

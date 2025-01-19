@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.appuser')
 
-@section('content')
+@section('contents')
 <div class="container">
     <h1>Daftar Komentar</h1>
     <a href="{{ route('komentar.create') }}" class="btn btn-primary mb-3">Tambah Komentar</a>
