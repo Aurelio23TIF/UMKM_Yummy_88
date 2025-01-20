@@ -32,6 +32,7 @@ class MenuController extends Controller
             'nama_makanan' => 'required|string|max:255',
             'harga_makanan' => 'required|String',
             'gambar' => 'nullable|image|max:2048',
+            'deskripsi' => 'required|string',
         ]);
 
         if ($request->hasFile('gambar')) {
@@ -53,6 +54,7 @@ class MenuController extends Controller
             'nama_makanan' => 'required|string|max:255',
             'harga_makanan' => 'required|String',
             'gambar' => 'nullable|image|max:2048',
+            'deskripsi' => 'required|string',
         ]);
 
         if ($request->hasFile('gambar')) {

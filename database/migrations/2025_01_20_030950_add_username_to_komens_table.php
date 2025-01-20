@@ -8,17 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('komentars', function (Blueprint $table) {
+        Schema::create('komens', function (Blueprint $table) {
             $table->id();
             $table->string('username');
             $table->string('rating');
-            $table->text('Komentar');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('komentars');
+        Schema::dropIfExists('komens');
     }
 };

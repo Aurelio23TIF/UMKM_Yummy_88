@@ -27,6 +27,7 @@
                         <!-- Informasi Menu -->
                         <h5 class="card-title mb-3">{{ $menu->nama_makanan }}</h5>
                         <p class="mb-1"><strong>Harga:</strong> {{ $menu->harga_makanan }}</p>
+                        <p class="mb-3"><strong>Deskripsi:</strong> {{ $menu->deskripsi }}</p> 
 
                         <!-- Tombol Edit dan Hapus -->
                         <div class="mt-auto d-flex justify-content-center gap-2">

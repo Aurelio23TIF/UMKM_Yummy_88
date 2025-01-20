@@ -17,6 +17,10 @@
             <label for="gambar" class="form-label">Gambar</label>
             <input type="file" name="gambar" class="form-control">
         </div>
+        <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi</label>
+            <input type="text" name="deskripsi" class="form-control">
+        </div>
         <button type="submit" class="btn btn-success">Simpan</button>
     </form>
 </div>

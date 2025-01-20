@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_makanan');
             $table->string('harga_makanan');
             $table->string('gambar')->nullable();
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

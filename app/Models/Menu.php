@@ -15,5 +15,6 @@ class Menu extends Model
         'nama_makanan',
         'harga_makanan',
         'gambar',
-    ]; 
+        'deskripsi',
+    ];
 }

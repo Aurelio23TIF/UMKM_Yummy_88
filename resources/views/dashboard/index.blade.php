@@ -12,7 +12,7 @@
     <a href="{{ route('news.create') }}" class="btn btn-custom">
         Tambah Berita
     </a>
-    <a href="{{ route('lokasi.create') }}" class="btn btn-custom">
+    <a href="{{ route('contacts.create') }}" class="btn btn-custom">
         Tambah Informasi
     </a>
 </div>

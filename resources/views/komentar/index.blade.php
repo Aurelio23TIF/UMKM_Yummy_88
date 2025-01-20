@@ -1,4 +1,4 @@
-@extends('layouts.appuser')
+@extends('layouts.app')
 
 @section('contents')
 <div class="container">
@@ -18,14 +18,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($komentars as $index => $komentar)
+            @foreach($komens as $index => $komens)
             <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $komentar->user->name }}</td>
-                <td>{{ $komentar->rating }}</td>
-                <td>{{ $komentar->deskripsi }}</td>
+                <td>{{ $komens->username }}</td>
+                <td>{{ $komens->rating }}</td>
+                <td>{{ $komens->deskripsi }}</td>
                 <td>
-                    <a href="{{ route('komentar.edit', $komentar) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('komentar.edit', $komens) }}" class="btn btn-warning btn-sm">Edit</a>
                 </td>
             </tr>
             @endforeach

@@ -7,10 +7,22 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        .btn-custom {
+            background-color: rgb(0, 65, 194); /* Button background color */
+            color: white; /* Button text color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s ease; /* Only scale on hover */
+        }
+
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
+
         .container {
             margin-top: 50px;
             max-width: 600px;
@@ -19,24 +31,29 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 30px;
         }
+
         h1 {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
             color: #343a40;
         }
+
         .form-label {
             font-weight: 500;
             color: #495057;
         }
+
         .form-control, .form-check-input {
             border-radius: 5px;
         }
+
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
             transition: background-color 0.3s ease;
         }
+
         .btn-primary:hover {
             background-color: #0056b3;
             border-color: #004085;
@@ -46,6 +63,7 @@
 <body>
     <div class="container">
         <h1>Tambah Komentar</h1>
+        <!-- Form untuk menyimpan komentar -->
         <form action="{{ route('komentar.store') }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -65,7 +83,11 @@
                 <label for="deskripsi" class="form-label">Deskripsi</label>
                 <textarea name="deskripsi" id="deskripsi" class="form-control" rows="3" placeholder="Masukkan deskripsi komentar" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <!-- Tombol Submit -->
+            <a href="{{ route('home') }}" class="btn btn-custom">
+            <button type="submit" class="btn btn-custom">
+                Simpan
+            </button></a>
         </form>
     </div>
 

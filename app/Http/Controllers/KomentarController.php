@@ -14,14 +14,14 @@ class KomentarController extends Controller
      */
     public function index()
     {
-        $komentars = Komentar::all();
-        return response()->json($komentars);
+        $komens = Komentar::all();
+        return view('komentar.index', compact('komens'));
     }
 
     public function home()
     {
-        $komentars = Komentar::all(); // Ambil semua data slides
-        return view('index', compact('komentars')); // Kirim ke view index.blade.php
+        $komens = Komentar::all(); // Ambil semua data slides
+        return view('index', compact('komens')); // Kirim ke view index.blade.php
     }
 
     public function create()
@@ -43,12 +43,21 @@ class KomentarController extends Controller
             'deskripsi' => 'required|string',
         ]);
 
-        $komentar = Komentar::create($validated);
+        $komens = Komentar::create($validated);
+
+        Komentar::create([
+            'username' => $request->username,
+            'rating' => $request->rating,
+            'deskripsi' => $request->deskripsi,
+        ]);
 
         return response()->json([
             'message' => 'Komentar berhasil ditambahkan!',
-            'data' => $komentar,
+            'data' => $komens,
         ], 201);
+
+        return redirect()->route('home');
+
     }
 
     /**
@@ -57,9 +66,9 @@ class KomentarController extends Controller
      * @param  \App\Models\Komentar  $komentar
      * @return \Illuminate\Http\Response
      */
-    public function show(Komentar $komentar)
+    public function show(Komentar $komens)
     {
-        return response()->json($komentar);
+        return response()->json($komens);
     }
 
     /**
@@ -69,7 +78,7 @@ class KomentarController extends Controller
      * @param  \App\Models\Komentar  $komentar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Komentar $komentar)
+    public function update(Request $request, Komentar $komens)
     {
         $validated = $request->validate([
             'username' => 'sometimes|required|string|max:255',
@@ -77,11 +86,11 @@ class KomentarController extends Controller
             'deskripsi' => 'sometimes|required|string',
         ]);
 
-        $komentar->update($validated);
+        $komens->update($validated);
 
         return response()->json([
             'message' => 'Komentar berhasil diperbarui!',
-            'data' => $komentar,
+            'data' => $komens,
         ]);
     }
 
@@ -91,9 +100,9 @@ class KomentarController extends Controller
      * @param  \App\Models\Komentar  $komentar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Komentar $komentar)
+    public function destroy(Komentar $komens)
     {
-        $komentar->delete();
+        $komens->delete();
 
         return response()->json([
             'message' => 'Komentar berhasil dihapus!',

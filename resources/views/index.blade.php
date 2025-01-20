@@ -7,13 +7,29 @@
     <!-- Import Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 
     <style>
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .btn-custom {
+        background-color: red; /* Button background color */
+        color: white; /* Button text color */
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        transition: transform 0.2s ease; /* Only scale on hover */
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #ff7b00;
+            background-color: #dfd6ce;
             scroll-behavior: smooth;
         }
 
@@ -392,6 +408,52 @@
         .footer ul li a:hover {
             text-decoration: underline;
         }
+
+        .header {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .contact-section {
+            font-family: Arial, sans-serif;
+        }
+
+        .white-container {
+    background-color: white; /* Latar belakang putih untuk seluruh kontainer */
+    padding: 20px; /* Memberikan jarak di dalam kontainer */
+    border-radius: 8px; /* Membulatkan sudut kontainer */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan bayangan lembut */
+    width: 80%; /* Menentukan lebar kontainer sesuai keinginan */
+    margin: 0 auto; /* Memposisikan kontainer di tengah */
+    gap: 20px; /* Menambahkan jarak antar card */
+
+}
+
+.card-container {
+    margin-bottom: 15px; /* Jarak antar card */
+    background-color: white; /* Latar belakang putih untuk card */
+    padding: 15px; /* Memberikan padding di sekitar card */
+    border-radius: 8px; /* Membulatkan sudut card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut untuk card */
+    max-width: 400px; /* Membatasi lebar maksimal card */
+    width: 100%; /* Agar card tidak lebih lebar dari kontainer */
+    margin: 0 auto 15px; /* Memposisikan card di tengah */
+}
+
+.card-body {
+    padding: 15px; /* Padding dalam card-body */
+    max-height: 200px; /* Membatasi tinggi maksimal konten dalam card */
+    overflow-y: auto; /* Menambahkan scrollbar jika konten melebihi tinggi card */
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+}
     </style>
 </head>
 <body>
@@ -442,6 +504,7 @@
                         <div class="card-body">
                             <h5 class="menu-name">{{ $menu->nama_makanan }}</h5>
                             <p class="menu-price">{{ ($menu->harga_makanan) }}</p>
+                            <p class="mb-3"><strong></strong> {{ $menu->deskripsi }}</p>
                             <button class="whatsapp-button" onclick="window.location.href='https://wa.me/085321081688';">
                                 Pesan
                             </button>
@@ -480,48 +543,85 @@
 
     </section>
 
-    <section id="comments">
-        <div class="judul">Komentar</div>
-        @forelse ($komentars as $item)
-                    <tr>
-                        <td>{{ $item->username }}</td>
-                        <td>{{ $item->rating }}</td>
-                        <td>{{ $item->deskripsi }}</td>
+    <section id="comments" class="text-center my-5">
+        <div class="judul mb-4">
+            <h2>Komentar</h2>
+        </div>
 
-                            @empty
-                            <tr>
-                                <td colspan="5" class="text-center">Belum ada komentar.</td>
-                            </tr>
-            @endforelse
-
+            @foreach ($komens as $item)
+                <div class="card-container">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $item->username }}</h5>
+                            <p class="card-text">Rating: {{ $item->rating }}</p>
+                            <p class="card-text">{{ $item->deskripsi }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+            <div class="d-flex justify-content-center">
+                <a href="{{ route('komentar.create') }}" class="btn btn-custom">
+                    Tambah Komentar
+                </a>
+            </div>
+        </table>
     </section>
 
     <section id="informations">
         <div class="judul">Informasi</div>
-        <!-- Add your maps content here -->
-    </section>
+        <div class="container mx-auto px-4 py-12">
+            <!-- Header -->
+            <div class="text-center">
+                <h1 class="text-5xl header">Lokasi</h1>
+                <p class="text-xl mt-2">Dimana kamu dapat menemukan kami</p>
+            </div>
 
-    <div class="footer">
-        <div class="footer-container">
-            <section>
-                <h3>Yummy88<sp style="color: #ffff00;"></sp/h3> <!-- Warna kuning untuk "por" -->
-                <p>Non Halal</p>
-            </section>
-            <section>
-                <ul>
-                    <li><a href="#menu" data-section="menu">Menu</a></li>
-                    <li><a href="#news" data-section="news">Berita</a></li>
-                    <li><a href="#comments" data-section="comments">Komentar</a></li>
-                    <li><a href="#informations" data-section="informations">Informasi</a></li>
-                </ul>
-            </section>
-            <section>
-                <h3>Contact Us</h3>
-                <p>📞 085321081688</p>
-                <p>📧 Yummy88ChineseFood@gmail.com</p>
-            </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+                <!-- Contact Details -->
+                <div class="contact-section">
+                    @foreach ($contacts as $contact)
+                        <h2 class="text-3xl font-bold mb-4">Hubungi</h2>
+                        <p class="mb-2">
+                            <span class="font-bold">Telepon:</span> {{ $contact->telepon }}
+                        </p>
+                        <p class="mb-2">
+                            <span class="font-bold">Email:</span> {{ $contact->email }}
+                        </p>
+                        <p class="mb-6">
+                            <span class="font-bold">Alamat:</span> {{ $contact->alamat }}
+                        </p>
+                        <hr class="border-t border-white mb-6">
+                    @endforeach
+                    <h2 class="text-3xl font-bold mb-4">Jam Buka:</h2>
+                    <p class="mb-2">
+                        <span class="font-bold">Setiap hari:</span> 6:00 WIB - 22:00 WIB
+                    </p>
+                    <p>
+                        <span class="font-bold text-blue-700">Non Halal</span>
+                    </p>
+                </div>
+
+                <!-- Google Maps -->
+                <div>
+                    @foreach ($contacts as $contact)
+                        @if ($contact->embedded_map)
+                            <iframe
+                                src="{{ $contact->embedded_map }}"
+                                width="600"
+                                height="450"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        @else
+                            <p class="text-red-500">Embedded map tidak tersedia.</p>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
         </div>
-    </div>
 </body>
 </html>
 

@@ -8,7 +8,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\KomentarController;
-use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 
@@ -21,7 +21,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware(['auth', 'verified', 'role:admin'])->name('dashboard');
 Route::get('/dashboarduser', [DashboardUserController::class, 'index'])->name('dashboard.userindex')->middleware(['auth', 'verified', 'role:user'])->name('dashboard');
 
-Route::resource('lokasi', LokasiController::class);
+Route::resource('contacts', ContactController::class);
+
+Route::get('/contact', [ContactController::class, 'showClientContact'])->name('client.contact');
+
 
 
 Route::resource('komentar', KomentarController::class)->except(['show']);
@@ -33,6 +36,9 @@ Route::resource('menu', MenuController::class);
 
 Route::get('/catatpesanan', [CatatpesananController::class, 'catatpesanan'])->name('catatpesanan.index');
 
+// Route::get('/', function () {
+//     return view('index');  // Pastikan index.blade.php ada di dalam folder resources/views
+// })->name('ind');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 

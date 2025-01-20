@@ -11,7 +11,7 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(180deg, #ffe819, #c7b513); /* Gradasi warna oranye */
+            background: linear-gradient(180deg, #ffffff, #ffffff); /* Gradasi warna oranye */
             background-attachment: fixed; /* Menjaga latar belakang tetap pada posisi */
             background-size: cover; /* Menyesuaikan ukuran background */
         }
@@ -73,7 +73,7 @@
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a href="{{ route('lokasi.index') }}" class="nav-link">
+                <a href="{{ route('contacts.index') }}" class="nav-link">
                     <i class="bi bi-grid-fill"></i> Informasi
                 </a>
             </li>
