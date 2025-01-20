@@ -355,6 +355,42 @@
             .carousel-caption {
                 font-size: 2rem;
             }
+
+        }
+        .footer {
+            background-color: #ff0000; /* Warna merah untuk seluruh footer */
+            color: #ffffff; /* Warna teks putih */
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px; /* Batas maksimal lebar kontainer */
+            margin: 0 auto; /* Pusatkan kontainer */
+        }
+        .footer section {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .footer h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        .footer ul li a {
+            color: #ffffff; /* Warna teks putih */
+            text-decoration: none;
+        }
+        .footer ul li a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -453,6 +489,30 @@
         <div class="judul">Informasi</div>
         <!-- Add your maps content here -->
     </section>
+
+    <div class="footer">
+        <div class="footer-container">
+            <section>
+                <h3>Yummy88<sp style="color: #ffff00;"></sp/h3> <!-- Warna kuning untuk "por" -->
+                <p>Non Halal</p>
+            </section>
+            <section>
+                <ul>
+                    <li><a href="#menu" data-section="menu">Menu</a></li>
+                    <li><a href="#news" data-section="news">Berita</a></li>
+                    <li><a href="#comments" data-section="comments">Komentar</a></li>
+                    <li><a href="#informations" data-section="informations">Informasi</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Contact Us</h3>
+                <p>📞 085321081688</p>
+                <p>📧 Yummy88ChineseFood@gmail.com</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
 
     <script>
         // Carousel animation
