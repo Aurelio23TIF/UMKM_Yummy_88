@@ -482,7 +482,18 @@
 
     <section id="comments">
         <div class="judul">Komentar</div>
-        <!-- Add your comments content here -->
+        @forelse ($komentars as $item)
+                    <tr>
+                        <td>{{ $item->username }}</td>
+                        <td>{{ $item->rating }}</td>
+                        <td>{{ $item->deskripsi }}</td>
+
+                            @empty
+                            <tr>
+                                <td colspan="5" class="text-center">Belum ada komentar.</td>
+                            </tr>
+            @endforelse
+
     </section>
 
     <section id="informations">

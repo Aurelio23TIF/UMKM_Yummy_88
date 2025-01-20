@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 
 class KomentarController extends Controller
 {
+    /**
+     * Display a listing of the comments.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $komentars = Komentar::with('user')->get();
-        return view('komentar.index', compact('komentars'));
+        $komentars = Komentar::all();
+        return response()->json($komentars);
     }
 
     public function home()
@@ -20,40 +25,78 @@ class KomentarController extends Controller
     }
 
     public function create()
-    {
-        return view('komentar.create');
-    }
+{
+    return view('komentar.create'); // Pastikan view ini ada
+}
 
+    /**
+     * Store a newly created comment in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
+            'username' => 'required|string|max:255',
             'rating' => 'required|integer|min:1|max:5',
-            'deskripsi' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
         ]);
 
-        Komentar::create([
-            'user_id' => Auth::id(),
-            'rating' => $request->rating,
-            'deskripsi' => $request->deskripsi,
-        ]);
+        $komentar = Komentar::create($validated);
 
-        return redirect()->route('komentar.index')->with('success', 'Komentar berhasil ditambahkan!');
+        return response()->json([
+            'message' => 'Komentar berhasil ditambahkan!',
+            'data' => $komentar,
+        ], 201);
     }
 
-    public function edit(Komentar $komentar)
+    /**
+     * Display the specified comment.
+     *
+     * @param  \App\Models\Komentar  $komentar
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Komentar $komentar)
     {
-        return view('komentar.edit', compact('komentar'));
+        return response()->json($komentar);
     }
 
+    /**
+     * Update the specified comment in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Komentar  $komentar
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, Komentar $komentar)
     {
-        $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
-            'deskripsi' => 'required|string|max:255',
+        $validated = $request->validate([
+            'username' => 'sometimes|required|string|max:255',
+            'rating' => 'sometimes|required|integer|min:1|max:5',
+            'deskripsi' => 'sometimes|required|string',
         ]);
 
-        $komentar->update($request->only(['rating', 'deskripsi']));
+        $komentar->update($validated);
 
-        return redirect()->route('komentar.index')->with('success', 'Komentar berhasil diperbarui!');
+        return response()->json([
+            'message' => 'Komentar berhasil diperbarui!',
+            'data' => $komentar,
+        ]);
+    }
+
+    /**
+     * Remove the specified comment from storage.
+     *
+     * @param  \App\Models\Komentar  $komentar
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Komentar $komentar)
+    {
+        $komentar->delete();
+
+        return response()->json([
+            'message' => 'Komentar berhasil dihapus!',
+        ]);
     }
 }
